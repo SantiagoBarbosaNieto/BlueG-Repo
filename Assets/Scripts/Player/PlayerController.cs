@@ -1,8 +1,12 @@
-
+using System.Collections.Generic;
+using System;
 using UnityEngine;
+using UnityEditor;
 
 [RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(PlayerAnimator))]
+[RequireComponent(typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
 {
 
@@ -11,10 +15,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float runSpeed = 5f;
 
     private float currentSpeed = 0f;
+    
+    //List of actions
+    private List<Action> interactables;
+
+
 
     private PlayerInput playerInput { get => GetComponent<PlayerInput>(); }
     private PlayerMover playerMover { get => GetComponent<PlayerMover>(); }
     private PlayerAnimator playerAnimator { get => GetComponent<PlayerAnimator>();}
+
+    private Collider2D playerCollider { get => GetComponent<Collider2D>(); }
 
     private void Awake()
     {
@@ -22,8 +33,9 @@ public class PlayerController : MonoBehaviour
         playerInput.SubscribeToStartRunEvent(OnRunStartInput);
         playerInput.SubscribeToEndRunEvent(OnRunEndInput);
         currentSpeed = walkSpeed;
+        interactables = new List<Action>();
     }
-    
+
     void Update()
     {  
         CheckMoveInput(playerInput.GetMoveInput());
@@ -31,8 +43,8 @@ public class PlayerController : MonoBehaviour
 
     private void CheckMoveInput(Vector2 moveInput)
     {
-        Vector2 moveVector = moveInput * currentSpeed;
-        playerMover.Move(moveVector * Time.deltaTime);
+        Vector2 moveVector = moveInput * 5*currentSpeed;
+        playerMover.Move(moveVector*Time.deltaTime);
         if (moveVector.magnitude > 0)
             playerAnimator.UpdateLocomotionAnimation(currentSpeed);
         else
@@ -57,7 +69,30 @@ public class PlayerController : MonoBehaviour
     private void OnInteractInput()
     {
         Debug.Log("Interact");
-        GetComponent<PlayerAnimator>().PlayInteractAnimation();
+        playerAnimator.PlayInteractAnimation();
+        
+        //Only invoke the last action added to the list
+        interactables[interactables.Count].Invoke();
+        
     }
 
+    internal void SubscribeInteractable(Action interact)
+    {
+        //Add action to the list
+        interactables.Add(interact);
+    }
+
+    internal void UnsubscribeInteractable(Action interact)
+    {
+        //Remove action from the list
+        interactables.Remove(interact);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Pickable"))
+        {
+            Debug.Log("Pickable");
+        }
+    }
 }
