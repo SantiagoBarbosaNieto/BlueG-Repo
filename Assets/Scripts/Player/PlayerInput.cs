@@ -11,6 +11,7 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] private InputAction interactAction;
     [SerializeField] private InputAction startRunAction;
     [SerializeField] private InputAction endRunAction;
+    [SerializeField] private InputAction toggleInventoryAction;
 
     private void OnEnable()
     {
@@ -18,6 +19,7 @@ public class PlayerInput : MonoBehaviour
         interactAction.Enable();
         startRunAction.Enable();
         endRunAction.Enable();
+        toggleInventoryAction.Enable();
     }
 
 //Event handled actions
@@ -48,6 +50,16 @@ public class PlayerInput : MonoBehaviour
     public void UnsubscribeToEndRunEvent(System.Action action)
     {
         endRunAction.performed -= ctx => action();
+    }
+    
+    //toggleInventoryAction
+    public void SubscribeToToggleInventoryEvent(System.Action action)
+    {
+        toggleInventoryAction.performed += ctx => action();
+    }
+    public void UnsubscribeToToggleInventoryEvent(System.Action action)
+    {
+        toggleInventoryAction.performed -= ctx => action();
     }
 
 //Stream input handled actions

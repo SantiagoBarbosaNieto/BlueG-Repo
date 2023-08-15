@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [Header("Configuration")]
     [SerializeField] public float walkSpeed = 3f;
     [SerializeField] public float runSpeed = 5f;
+    [SerializeField] public GameObject inventoryUI;
 
     private float currentSpeed = 0f;
     
@@ -32,8 +33,10 @@ public class PlayerController : MonoBehaviour
         playerInput.SubscribeToInteractEvent(OnInteractInput);
         playerInput.SubscribeToStartRunEvent(OnRunStartInput);
         playerInput.SubscribeToEndRunEvent(OnRunEndInput);
+        playerInput.SubscribeToToggleInventoryEvent(OnToggleInventory);
         currentSpeed = walkSpeed;
         interactables = new List<Action>();
+        inventoryUI.SetActive(false);
     }
 
     void Update()
@@ -87,6 +90,13 @@ public class PlayerController : MonoBehaviour
         //Remove action from the list
         interactables.Remove(interact);
     }
+
+    private void OnToggleInventory()
+    {
+        inventoryUI.SetActive(!inventoryUI.activeSelf);
+    }
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

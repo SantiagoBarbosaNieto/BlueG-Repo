@@ -7,8 +7,6 @@ public class PlayerMover : MonoBehaviour
 {
     Rigidbody2D player;
 
-    public float speed = 5f;
-
     private void Awake()
     {
         player = GetComponent<Rigidbody2D>();
