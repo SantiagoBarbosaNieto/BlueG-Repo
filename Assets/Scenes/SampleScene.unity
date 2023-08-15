@@ -214,6 +214,27 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3426973442912203631, guid: 8775697cf65e3af40a3dec3370add514, type: 3}
   m_PrefabInstance: {fileID: 1958370778}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &187117239 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5389119732830719625, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+  m_PrefabInstance: {fileID: 1718203851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &187117244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187117239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa04886b82b80574b822d55288278820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
+  - {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
+  equippableType: 0
 --- !u!224 &196269463 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3426973442912203631, guid: 8775697cf65e3af40a3dec3370add514, type: 3}
@@ -3971,15 +3992,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1935214300}
     m_Modifications:
-    - target: {fileID: 1194591168895691833, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+    - target: {fileID: 0}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1194591168895691833, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+    - target: {fileID: 0}
       propertyPath: sprites.Array.data[0]
       value: 
       objectReference: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
-    - target: {fileID: 1194591168895691833, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+    - target: {fileID: 0}
       propertyPath: sprites.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 97ad91e8b9bc5f94f941f06a70776c26, type: 3}
@@ -4069,7 +4090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5389119732830719625, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: m_Name
-      value: EquippableItem
+      value: Daggers_6
       objectReference: {fileID: 0}
     - target: {fileID: 7589361847696806621, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: m_Sprite

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using BG.Enums;
+using System;
 
 public class EquipSlot : I_Slot
 {
@@ -12,7 +13,7 @@ public class EquipSlot : I_Slot
     {
         Debug.Log("Item named " + itemDropped.name + " dropped in equip slot");
         //Handle equipment change communication with player
-        EquippableItem equippable = itemDropped.GetComponent<EquippableItem>();
+        EquipableItem equippable = itemDropped.GetComponent<EquipableItem>();
         if(equippable == null)
         {
             Debug.LogError("Item dropped in equip slot is not equippable");
@@ -24,7 +25,7 @@ public class EquipSlot : I_Slot
     //Override extraChecks
     protected override bool ExtraChecksBeforeDrop(GameObject item)
     {
-        EquippableItem equipable = item.GetComponent<EquippableItem>();
+        EquipableItem equipable = item.GetComponent<EquipableItem>();
         if(equipable == null) return false;
 
         if(equipable.EquippableType != equipSlotType) return false;
@@ -35,4 +36,8 @@ public class EquipSlot : I_Slot
          
     }
 
+    internal void Unequip()
+    {
+        manager.Unequip(equipSlotType);
+    }
 }

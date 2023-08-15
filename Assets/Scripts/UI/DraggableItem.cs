@@ -10,11 +10,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        DragBegan();
         parentToReturnTo = this.transform.parent;
         this.transform.SetParent(this.transform.root);
         //Turn off raycast detection
         this.GetComponent<Image>().raycastTarget = false;
     }
+    public virtual void DragBegan(){}
 
     public void OnDrag(PointerEventData eventData)
     {

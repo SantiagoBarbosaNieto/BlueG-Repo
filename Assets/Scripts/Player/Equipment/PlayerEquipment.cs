@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using BG.Enums;
+using System;
 
 public class PlayerEquipment: MonoBehaviour
 {     
@@ -95,7 +96,7 @@ public class PlayerEquipment: MonoBehaviour
         leftWeaponEquip.GetComponent<SpriteRenderer>().sprite = sprites[1];
     }
 
-    public void Equip(EquippableItem item)
+    public void Equip(EquipableItem item)
     {
         switch(item.EquippableType)
         {
@@ -113,6 +114,32 @@ public class PlayerEquipment: MonoBehaviour
                 break;
             case EquipType.Weapons:
                 EquipWeapons(item.Sprites);
+                break;
+            default:
+                Debug.Log("No recognizable equip type found");
+                break;
+            
+        }
+    }
+
+    internal void Unequip(EquipType equipSlotType)
+    {
+        switch(equipSlotType)
+        {
+            case EquipType.Head:
+                EquipHead(headDefault);
+                break;
+            case EquipType.Core:   
+                EquipCore(new List<Sprite> { torsoDefault, pelvisDefault });
+                break;
+            case EquipType.Legs:
+                EquipLegs(new List<Sprite> { leftLegDefault, leftBootDefault, rightLegDefault, rightBootDefault });
+                break;
+            case EquipType.Arms:
+                EquipArms(new List<Sprite> { leftShoulderDefault, leftElbowDefault, leftHandDefault, rightHandDefault, rightElbowDefault, rightShoulderDefault });
+                break;
+            case EquipType.Weapons:
+                EquipWeapons(new List<Sprite> { rightWeaponDefault, leftWeaponDefault });
                 break;
             default:
                 Debug.Log("No recognizable equip type found");
