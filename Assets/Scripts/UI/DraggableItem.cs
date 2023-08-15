@@ -12,7 +12,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         DragBegan();
         parentToReturnTo = this.transform.parent;
-        this.transform.SetParent(this.transform.root);
+        this.transform.SetParent(GetComponentInParent<Canvas>().transform);
         //Turn off raycast detection
         this.GetComponent<Image>().raycastTarget = false;
     }
