@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Unity.Collections.LowLevel.Unsafe;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -11,8 +13,11 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
         if(!CanDropItem(eventData.pointerDrag)) return;
 
         DraggableItem item = eventData.pointerDrag.GetComponent<DraggableItem>();
+
+        DraggableItem oldItem = transform.GetComponentInChildren<DraggableItem>();
+        if(oldItem != null) oldItem.SetParentToReturn(item.transform.parent);
         item.SetParentToReturn(transform);
-        OnSomethingDropped(transform);
+        OnSomethingDropped(item.transform);
     }
 
     public bool CanDropItem(GameObject itemDropped)
@@ -21,13 +26,14 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
 
         DraggableItem item = itemDropped.GetComponent<DraggableItem>();
         if(item == null) return false;
-
-        for(int i = 0; i < transform.childCount; i++)
-        {
-            DraggableItem childItem = transform.GetChild(i).GetComponent<DraggableItem>();
-            if(childItem != null) return false;
-        }
         
+        return ExtraChecksBeforeDrop(itemDropped); 
+    }
+
+
+
+    protected virtual bool ExtraChecksBeforeDrop(GameObject item)
+    {
         return true;
     }
 
