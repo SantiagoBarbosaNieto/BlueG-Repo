@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         playerAnimator.PlayInteractAnimation();
         
         //Only invoke the last action added to the list
-        interactables[interactables.Count].Invoke();
+        interactables[interactables.Count-1].Invoke();
         
     }
 

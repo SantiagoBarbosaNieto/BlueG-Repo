@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pickable
   layers:
   - Default
   - TransparentFX
@@ -43,9 +44,6 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 309922307
-    locked: 0
-  - name: Walkable
-    uniqueID: 488722089
     locked: 0
   - name: Player
     uniqueID: 2967772717
