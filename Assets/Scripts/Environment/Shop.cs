@@ -11,9 +11,11 @@ public class Shop : I_Interactable
 
     public override void OnPlayerNear()
     {
+        
     }
 
     public override void OnPlayerNotNear()
     {
+
     }
 }
