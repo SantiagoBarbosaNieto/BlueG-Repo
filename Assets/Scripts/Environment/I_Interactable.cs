@@ -17,6 +17,7 @@ public abstract class I_Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().SubscribeInteractable(Interact);
+            OnPlayerNear();
         }
     }
 
@@ -25,8 +26,12 @@ public abstract class I_Interactable : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerController>().UnsubscribeInteractable(Interact);
+            OnPlayerNotNear();
         }
     }
+
+    public abstract void OnPlayerNear();
+    public abstract void OnPlayerNotNear();
 
     public abstract void Interact();
 }

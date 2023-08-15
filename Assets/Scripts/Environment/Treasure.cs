@@ -17,4 +17,11 @@ public class Treasure : I_Interactable
 
     }
 
+    public override void OnPlayerNear()
+    {
+    }
+
+    public override void OnPlayerNotNear()
+    {
+    }
 }

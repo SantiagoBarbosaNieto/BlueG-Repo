@@ -8,4 +8,12 @@ public class Shop : I_Interactable
     {
         Debug.Log("Interacting with shop");
     }
+
+    public override void OnPlayerNear()
+    {
+    }
+
+    public override void OnPlayerNotNear()
+    {
+    }
 }
