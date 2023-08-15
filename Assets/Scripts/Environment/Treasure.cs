@@ -14,6 +14,9 @@ public class Treasure : I_Interactable
     {
         openedTreasure.SetActive(true);
         closedTreasure.SetActive(false);
+        GetComponent<Treasure>().enabled = false;
+
+        //Spawn coins to pick up
 
     }
 
