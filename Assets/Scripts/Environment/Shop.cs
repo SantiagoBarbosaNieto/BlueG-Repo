@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Shop : I_Interactable
 {
+    [SerializeField] 
+    float  slotsNum = 30;
     [SerializeField]
     GameObject ShopUI;
     [SerializeField]
@@ -17,11 +19,20 @@ public class Shop : I_Interactable
 
     void Awake()
     {
-        // GameObject instance = Instantiate(SlotPrefab, transform.position, Quaternion.identity);
-        // instance.transform.SetParent(ShopGrid.transform);
-        // instance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-        // //If theres a need to rezise, resize the shopgrid rect vertically
-        // AddRowShopGrid();
+        ShopUI.SetActive(false);
+        //Initialize and instantiate all shop stock + a few empty slots, based on a SO
+        
+        //while # of slots < slotsNum
+        while(ShopGrid.transform.childCount < slotsNum) {
+            GameObject instance = Instantiate(SlotPrefab, transform.position, Quaternion.identity);
+            instance.transform.SetParent(ShopGrid.transform);
+            instance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            int mod = ShopGrid.transform.childCount % 5;
+            if(ShopGrid.transform.childCount > 25 && mod == 0)
+            {
+                AddRowShopGrid();
+            }
+        }
 
     }
 
