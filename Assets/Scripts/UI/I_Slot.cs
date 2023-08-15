@@ -22,7 +22,11 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
         DraggableItem item = itemDropped.GetComponent<DraggableItem>();
         if(item == null) return false;
 
-        if (transform.childCount > 0) return false;
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            DraggableItem childItem = transform.GetChild(i).GetComponent<DraggableItem>();
+            if(childItem != null) return false;
+        }
         
         return true;
     }

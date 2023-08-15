@@ -31,6 +31,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void SetParentToReturn(Transform parent)
     {
         parentToReturnTo = parent;
+        transform.SetAsLastSibling();
     }
 
 }
