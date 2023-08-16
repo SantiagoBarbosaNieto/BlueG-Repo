@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SellSlot : I_Slot
 {
-    [Range(0,1)]
-    [SerializeField] float sellPercentage;
     [SerializeField] InventoryManager storeInventory;
     PlayerCoins playerCoins;
 
@@ -16,7 +14,7 @@ public class SellSlot : I_Slot
     protected override void OnSomethingDropped(Transform itemDropped)
     {
         EquipableItem item = itemDropped.GetComponent<EquipableItem>();
-        playerCoins.AddCoins(Mathf.CeilToInt(sellPercentage*item.price));
+        playerCoins.AddCoins(item.price);
         
         storeInventory.GetComponent<InventoryManager>().AddItem(item);
         item.PlayerOwned = false;
