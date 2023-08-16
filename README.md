@@ -5,6 +5,7 @@
 # Controls
  The main controls are:
   - AWSD for movement
+  - TAB for inventory
   - Spacebar for interactions
   - Mouse for drag & drop items
 # Gallery 
