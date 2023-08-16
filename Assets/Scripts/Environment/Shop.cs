@@ -52,8 +52,9 @@ public class Shop : I_Interactable
         
     }
 
-    public override void OnPlayerNotNear()
+    public override void OnPlayerExitNear()
     {
 
     }
+
 }

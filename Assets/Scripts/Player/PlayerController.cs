@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float runSpeed = 5f;
     [SerializeField] public GameObject inventoryUI;
 
+
     private float currentSpeed = 0f;
     
     //List of actions
@@ -105,4 +106,5 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Pickable");
         }
     }
+
 }

@@ -26,9 +26,23 @@ public class EquipSlot : I_Slot
     protected override bool ExtraChecksBeforeDrop(GameObject item)
     {
         EquipableItem equipable = item.GetComponent<EquipableItem>();
-        if(equipable == null) return false;
+        if(equipable == null)
+        {
+            Debug.Log("You can't equip that!");
+            return false;
+        }
 
-        if(equipable.EquippableType != equipSlotType) return false;
+        if(equipable.EquippableType != equipSlotType) 
+        {
+            Debug.Log("It's not the right slot type!");
+            return false;
+        }
+        
+        if(item.GetComponent<EquipableItem>().parentToReturnTo.GetComponent<I_Slot>() is ShopSlot)
+        {
+            Debug.Log("You cannot steal! >:(");
+            return false;
+        }
 
         
         return true;
