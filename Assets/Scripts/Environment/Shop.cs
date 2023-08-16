@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shop : I_Interactable
 {
@@ -12,6 +14,9 @@ public class Shop : I_Interactable
     GameObject SlotPrefab;
     [SerializeField]
     GameObject ShopGrid;
+    [SerializeField]
+    Scrollbar sb; //Ugly but works for now
+    
     public override void Interact()
     {
         ToggleShopUI();
@@ -19,7 +24,6 @@ public class Shop : I_Interactable
 
     void Awake()
     {
-        ShopUI.SetActive(false);
         //Initialize and instantiate all shop stock + a few empty slots, based on a SO
         
         //while # of slots < slotsNum
@@ -34,6 +38,9 @@ public class Shop : I_Interactable
                 AddRowToShopGrid();
             }
         }
+        ShopUI.SetActive(false);
+
+
 
     }
 
@@ -45,6 +52,7 @@ public class Shop : I_Interactable
     private void ToggleShopUI()
     {
         ShopUI.SetActive(!ShopUI.activeSelf);
+        sb.value = 1;
     }
 
     public override void OnPlayerNear()

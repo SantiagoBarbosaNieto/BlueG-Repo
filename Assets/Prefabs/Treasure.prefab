@@ -437,7 +437,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2177669852668253390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.91, y: -3.87, z: -0.29710093}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -504,3 +504,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openedTreasure: {fileID: 2177669851572627185}
   closedTreasure: {fileID: 2177669851151249282}
+  topIcon: {fileID: 2177669852321359916}
