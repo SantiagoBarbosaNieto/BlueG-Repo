@@ -13,9 +13,7 @@ public class EquipableItem : DraggableItem
     public override void DragBegan()
     {
         EquipSlot slot = transform.GetComponentInParent<EquipSlot>();
-        Debug.Log("Drag begun + name of parent: " + transform.parent.name);
         if(slot == null) return;
-        Debug.Log("Equip slot found");
         slot.Unequip();
 
     }

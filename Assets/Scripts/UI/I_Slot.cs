@@ -15,7 +15,11 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
         DraggableItem item = eventData.pointerDrag.GetComponent<DraggableItem>();
 
         DraggableItem oldItem = transform.GetComponentInChildren<DraggableItem>();
-        if(oldItem != null) oldItem.SetParentToReturn(item.transform.parent);
+        if(oldItem != null) 
+        {
+            oldItem.ChangeParent(item.parentToReturnTo);
+            Debug.Log("Old item name: " + oldItem.name + " Item parent name: "  + item.parentToReturnTo.name ); 
+        }
         item.SetParentToReturn(transform);
         OnSomethingDropped(item.transform);
     }

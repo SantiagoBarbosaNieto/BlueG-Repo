@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    Transform parentToReturnTo = null;
+    public Transform parentToReturnTo {get; private set;} = null;
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -28,6 +28,12 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         this.transform.SetParent(parentToReturnTo);
         this.transform.position = transform.parent.position;
         this.GetComponent<Image>().raycastTarget = true;
+    }
+    public void ChangeParent(Transform newParent)
+    {
+        parentToReturnTo = newParent;
+        transform.SetParent(parentToReturnTo);
+        transform.position = parentToReturnTo.position;
     }
 
     public void SetParentToReturn(Transform parent)
