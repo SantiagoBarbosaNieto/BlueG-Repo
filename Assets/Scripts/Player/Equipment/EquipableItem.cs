@@ -4,7 +4,7 @@ using BG.Enums;
 
 public class EquipableItem : DraggableItem
 {
-    [SerializeField] public int price{get; private set;} = 1;
+    [SerializeField] public int price = 1;
     [SerializeField] private List<Sprite> sprites;
     [SerializeField] private EquipType equippableType;
 

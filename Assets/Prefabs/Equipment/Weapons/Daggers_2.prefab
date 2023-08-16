@@ -8,17 +8,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+      propertyPath: price
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: sprites.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: sprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: ac0dddbcfbe1ac846ab5ba58507ed979, type: 3}
+      objectReference: {fileID: 21300000, guid: 0a4a3c212d77eb243aeaac660261fb0f, type: 3}
     - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: sprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: ac0dddbcfbe1ac846ab5ba58507ed979, type: 3}
+      objectReference: {fileID: 21300000, guid: 0a4a3c212d77eb243aeaac660261fb0f, type: 3}
     - target: {fileID: 2063178805382570305, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -110,6 +114,6 @@ PrefabInstance:
     - target: {fileID: 7589361847696806621, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: ac0dddbcfbe1ac846ab5ba58507ed979, type: 3}
+      objectReference: {fileID: 21300000, guid: 8e6d0097a3c67dc4ab63e05d96a7be76, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}

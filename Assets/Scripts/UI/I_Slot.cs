@@ -18,7 +18,6 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
         if(oldItem != null) 
         {
             oldItem.ChangeParent(item.parentToReturnTo);
-            Debug.Log("Old item name: " + oldItem.name + " Item parent name: "  + item.parentToReturnTo.name ); 
         }
         item.SetParentToReturn(transform);
 

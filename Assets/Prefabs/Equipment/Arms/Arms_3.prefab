@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
+      propertyPath: price
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 187117244, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: equippableType
       value: 4
       objectReference: {fileID: 0}
@@ -130,6 +134,6 @@ PrefabInstance:
     - target: {fileID: 7589361847696806621, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 805906b1206aa944b99385aa2c600d2f, type: 3}
+      objectReference: {fileID: 21300000, guid: eb83aef9a84e09a4a8ac7bc59fb7ecce, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666f6a2dc2070c94b8629911c714fa87, type: 3}

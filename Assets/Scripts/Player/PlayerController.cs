@@ -72,7 +72,6 @@ public class PlayerController : MonoBehaviour
 
     private void OnInteractInput()
     {
-        Debug.Log("Interact");
         playerAnimator.PlayInteractAnimation();
         if(interactables.Count <= 0) return;
         //Only invoke the last action added to the list

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BuySlot : I_Slot
 {
@@ -17,10 +18,10 @@ public class BuySlot : I_Slot
 
     protected override void OnSomethingDropped(Transform itemDropped)
     {
-        Debug.Log("Attempted to buy something");
         EquipableItem item = itemDropped.GetComponent<EquipableItem>();
         if(item == null) return;
         playerCoins.BuyItem(item);
+        item.GetComponent<Image>().raycastTarget = true;
     }
 
     protected override bool ExtraChecksBeforeDrop(GameObject item)
