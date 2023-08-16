@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Treasure : I_Interactable
 {
+    [SerializeField] int coins = 300;
     [SerializeField]
     GameObject openedTreasure;
     [SerializeField]
@@ -27,7 +28,7 @@ public class Treasure : I_Interactable
 
         
         PlayerCoins playerCoins = GameObject.FindObjectOfType<PlayerCoins>();
-        playerCoins.AddCoins(30);
+        playerCoins.AddCoins(coins);
 
         //Play some animation of coins flying out of the treasure
     }
