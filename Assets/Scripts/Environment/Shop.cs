@@ -16,7 +16,7 @@ public class Shop : I_Interactable
     GameObject ShopGrid;
     [SerializeField]
     Scrollbar sb; //Ugly but works for now
-    
+
     public override void Interact()
     {
         ToggleShopUI();
@@ -31,6 +31,7 @@ public class Shop : I_Interactable
             GameObject instance = Instantiate(SlotPrefab, transform.position, Quaternion.identity);
             instance.transform.SetParent(ShopGrid.transform);
             instance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+            
             int mod = ShopGrid.transform.childCount % 5;
 
             if(ShopGrid.transform.childCount > 25 && mod == 0)
@@ -62,7 +63,7 @@ public class Shop : I_Interactable
 
     public override void OnPlayerExitNear()
     {
-
+        ShopUI.SetActive(false);
     }
 
 }

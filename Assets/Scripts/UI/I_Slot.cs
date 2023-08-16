@@ -21,6 +21,15 @@ public abstract class I_Slot : MonoBehaviour, IDropHandler
             Debug.Log("Old item name: " + oldItem.name + " Item parent name: "  + item.parentToReturnTo.name ); 
         }
         item.SetParentToReturn(transform);
+
+        //Search price tag in children
+        PriceTag priceTag = item.GetComponentInChildren<PriceTag>();
+        if(priceTag != null)
+        {
+            priceTag.UpdatePrice();
+        }
+
+
         OnSomethingDropped(item.transform);
     }
 

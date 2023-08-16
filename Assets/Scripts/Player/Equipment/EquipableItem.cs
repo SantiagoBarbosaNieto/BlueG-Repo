@@ -20,4 +20,11 @@ public class EquipableItem : DraggableItem
         slot.Unequip();
 
     }
+
+    public bool CanAfford()
+    {
+        PlayerCoins playerCoins = FindObjectOfType<PlayerCoins>();
+        if(playerCoins == null) return false;
+        return playerCoins.CanAfford(price);
+    }
 }

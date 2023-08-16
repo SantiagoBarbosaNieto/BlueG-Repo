@@ -11,7 +11,6 @@ public class EquipSlot : I_Slot
 
     protected override void OnSomethingDropped(Transform itemDropped)
     {
-        Debug.Log("Item named " + itemDropped.name + " dropped in equip slot");
         //Handle equipment change communication with player
         EquipableItem equippable = itemDropped.GetComponent<EquipableItem>();
         if(equippable == null)

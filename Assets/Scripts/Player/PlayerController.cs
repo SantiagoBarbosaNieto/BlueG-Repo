@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
         inventoryUI.SetActive(false);
     }
 
-    void Update()
+    void FixedUpdate()
     {  
         CheckMoveInput(playerInput.GetMoveInput());
     }

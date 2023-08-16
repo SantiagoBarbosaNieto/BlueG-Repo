@@ -27,7 +27,6 @@ public class PlayerCoins : MonoBehaviour
 
     public bool CanAfford(int amount)
     {
-        Debug.Log("Can afford?? " + (coins >= amount));
         return coins >= amount;
     }
 }
