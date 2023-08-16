@@ -17,6 +17,9 @@ public class Shop : I_Interactable
     [SerializeField]
     Scrollbar sb; //Ugly but works for now
 
+    [SerializeField]
+    GameObject topIcon;
+
     public override void Interact()
     {
         ToggleShopUI();
@@ -58,12 +61,13 @@ public class Shop : I_Interactable
 
     public override void OnPlayerNear()
     {
-        
+        topIcon.SetActive(true);
     }
 
     public override void OnPlayerExitNear()
     {
         ShopUI.SetActive(false);
+        topIcon.SetActive(false);
     }
 
 }
