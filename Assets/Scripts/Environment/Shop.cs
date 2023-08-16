@@ -5,7 +5,7 @@ using UnityEngine;
 public class Shop : I_Interactable
 {
     [SerializeField] 
-    float  slotsNum = 30;
+    float  maxSlots = 30;
     [SerializeField]
     GameObject ShopUI;
     [SerializeField]
@@ -23,20 +23,21 @@ public class Shop : I_Interactable
         //Initialize and instantiate all shop stock + a few empty slots, based on a SO
         
         //while # of slots < slotsNum
-        while(ShopGrid.transform.childCount < slotsNum) {
+        while(ShopGrid.transform.childCount < maxSlots) {
             GameObject instance = Instantiate(SlotPrefab, transform.position, Quaternion.identity);
             instance.transform.SetParent(ShopGrid.transform);
             instance.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
             int mod = ShopGrid.transform.childCount % 5;
+
             if(ShopGrid.transform.childCount > 25 && mod == 0)
             {
-                AddRowShopGrid();
+                AddRowToShopGrid();
             }
         }
 
     }
 
-    private void AddRowShopGrid()
+    private void AddRowToShopGrid()
     {
         ShopGrid.GetComponent<RectTransform>().sizeDelta = new Vector2(ShopGrid.GetComponent<RectTransform>().sizeDelta.x,ShopGrid.GetComponent<RectTransform>().sizeDelta.y+ 60);
     }

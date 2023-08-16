@@ -79,9 +79,9 @@ public class PlayerEquipment: MonoBehaviour
         leftShoulderEquip.GetComponent<SpriteRenderer>().sprite = sprites[0];
         leftElbowEquip.GetComponent<SpriteRenderer>().sprite = sprites[1];
         leftHandEquip.GetComponent<SpriteRenderer>().sprite = sprites[2];
-        rightHandEquip.GetComponent<SpriteRenderer>().sprite = sprites[3];
+        rightShoulderEquip.GetComponent<SpriteRenderer>().sprite = sprites[3];
         rightElbowEquip.GetComponent<SpriteRenderer>().sprite = sprites[4];
-        rightShoulderEquip.GetComponent<SpriteRenderer>().sprite = sprites[5];
+        rightHandEquip.GetComponent<SpriteRenderer>().sprite = sprites[5];
     }
 
     public void EquipWeapons(List<Sprite> sprites)
